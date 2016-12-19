@@ -53,7 +53,7 @@ bool check(const char* word)
 			nodeptr = nodeptr->charray[tmp];
 			strptr++;
 		}
-		else if(word[strptr] == (char)NULL)
+		else if(word[strptr] == '\0')
 		{
 			nodeptr = nodeptr->charray[27];
 			strptr++;
@@ -62,7 +62,7 @@ bool check(const char* word)
 		{
 			return false;
 		}
-		else if (strptr == len+1 && (nodeptr->check == false) && word[strptr-1] ==(char)NULL)
+		else if (strptr == len+1 && (nodeptr->check == false) && word[strptr-1] == '\0')
 		{
 			return true;
 		}
@@ -104,7 +104,7 @@ bool load(const char* dictionary)
 		strptr = 0;
 		nodeptr = root;
 		// get character
-		while (wordholder[strptr] != (char)NULL)
+		while (wordholder[strptr] != '\0')
 		{
 			if (wordholder[strptr] == '\n')
 			{
