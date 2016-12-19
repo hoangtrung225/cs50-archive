@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>server-3</title>
+    </head>
+    <body>
+      <div id="messages"></div>
+
+      <script src="//code.jquery.com/jquery.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+
+          var socket = io.connect(window.location.href);
+          socket.on('from_server', function (data) {
+              $('#messages').append('<p>' + data.message + '</p>');
+              socket.emit('client_event', { data: 'pong ' + new Date() });
+          });
+
+  </script>
+</body>

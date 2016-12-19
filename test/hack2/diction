@@ -1,0 +1,31 @@
+//dictionary attack
+	FILE* words;
+	words = fopen("/usr/share/dict/words","r");
+	char* stringin = malloc(15 * sizeof(char));
+	char* stringout = malloc(25 * sizeof(char));
+	char* out;
+
+	while ((fgets(stringin,15,words) != NULL))
+	{
+		//kill the new line
+		stringin[strlen(stringin)-1] = (int)NULL;
+		//convert and compare
+		stringout = crypt(stringin,salt);
+		int result = compstr(stringout,argv[1]);
+		
+		if (result == 1)
+		{
+			printf("%s\n",stringin);
+			break;
+			
+		}
+	}
+	fclose("/usr/share/dict/words");
+	
+	
+	
+	
+	
+	
+	
+	
